@@ -46,7 +46,7 @@
 using std::runtime_error;
 using std::numeric_limits;
 
-Parser::Parser(const TokenStream& tokenStream, const VariableTable& variableTable)
+Parser::Parser(TokenStream& tokenStream, const VariableTable& variableTable)
     : tokenStream{ tokenStream }, variableTable{ variableTable }, field_reachedTerminalToken{ false }, field_isReady{ true } {}
 
 #pragma warning(push)

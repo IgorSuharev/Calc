@@ -8,7 +8,7 @@
 
 class Parser {
 public:
-    Parser(const TokenStream& tokenStream, const VariableTable& variableTable);
+    Parser(TokenStream& tokenStream, const VariableTable& variableTable);
     double expression();
     double primary();
     double secondary();
@@ -20,7 +20,7 @@ public:
 
     bool reachedTerminalToken();
 private:
-    TokenStream tokenStream;
+    TokenStream& tokenStream;
     VariableTable variableTable;
     bool field_reachedTerminalToken;
     bool field_isReady;

@@ -11,10 +11,10 @@ using std::invalid_argument;
 void TokenStream::toNextStatement() {
     while (!isEmpty()) {
         Token token = buffer.top();
+        buffer.pop();
         if (token.getType() == TokenType::statementEnding) {
             return;
         }
-        buffer.pop();
     }
 
     char untilCharacter = Token::typeToValue(TokenType::statementEnding)[0];
