@@ -4,21 +4,21 @@
 using std::out_of_range;
 using std::runtime_error;
 
-double VariableTable::getValue(string name) {
+double VariableTable::getValue(string name) const {
     try {
         return variables.at(name);
     } catch (const out_of_range&) {
-        throw runtime_error("undefined variable \"" + name + "\"");
+        throw runtime_error{ "undefined variable \"" + name + "\"" };
     }
 }
 
-bool VariableTable::isDeclared(string name) {
+bool VariableTable::isDeclared(string name) const {
     return variables.find(name) != variables.end();
 }
 
-double VariableTable::defineName(string name, double value) {
+double VariableTable::declare(string name, double value) {
     if (isDeclared(name)) {
-        throw runtime_error(name + " re-declaration");
+        throw runtime_error{ name + " re-declaration" };
     }
     variables[name] = value;
     return value;
@@ -26,7 +26,7 @@ double VariableTable::defineName(string name, double value) {
 
 double VariableTable::assign(string name, double value) {
     if (!isDeclared(name)) {
-        throw runtime_error(name + " is not declared");
+        throw runtime_error{ name + " is not declared" };
     }
     variables[name] = value;
     return value;
