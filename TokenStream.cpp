@@ -10,15 +10,15 @@ using std::invalid_argument;
 
 void TokenStream::toNextStatement() {
     while (!isEmpty()) {
-        Token token = buffer.top();
+        Token token{ buffer.top() };
         buffer.pop();
         if (token.getType() == TokenType::statementEnding) {
             return;
         }
     }
 
-    char untilCharacter = Token::typeToValue(TokenType::statementEnding)[0];
-    for (char ch = '\0'; ch != untilCharacter; is >> ch);
+    char untilCharacter{ Token::typeToValue(TokenType::statementEnding)[0] };
+    for (char ch{ '\0' }; ch != untilCharacter; is >> ch);
 }
 
 bool TokenStream::isEmpty() const {
@@ -38,7 +38,7 @@ TokenStream::TokenStream(istream& is)
 
 Token TokenStream::get() {
     if (!isEmpty()) {
-        Token result = buffer.top();
+        Token result{ buffer.top() };
         buffer.pop();
         return result;
     }
@@ -46,7 +46,7 @@ Token TokenStream::get() {
     char ch;
     is >> ch;
     try {
-        return Token(Token::characterToType(ch));
+        return Token{ Token::characterToType(ch) };
     } catch (const domain_error&) {}
     
     if (isdigit(ch) || ch == '.') {
@@ -55,7 +55,7 @@ Token TokenStream::get() {
             stringValue += ch;
         } while (is >> ch && (isdigit(ch) || ch == '.'));
         is.putback(ch);
-        return Token(TokenType::number, stringValue);
+        return Token{ TokenType::number, stringValue };
     }
     
     if (isalpha(ch)) {
@@ -65,10 +65,10 @@ Token TokenStream::get() {
         } while (is.get(ch) && isalnum(ch));
         is.putback(ch);
         try {
-            return Token(Token::stringToType(stringValue), stringValue);
+            return Token{ Token::stringToType(stringValue), stringValue };
         } catch (domain_error &) {
-            return Token(TokenType::name, stringValue);
+            return Token{ TokenType::name, stringValue };
         }
     }
-    throw runtime_error("bad token");
+    throw runtime_error{ "bad token" };
 }
