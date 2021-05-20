@@ -9,7 +9,8 @@
 class Parser {
 public:
     Parser(TokenStream& tokenStream, const VariableTable& variableTable);
-    
+    Parser& operator=(const Parser&) = delete;
+
     double statement();
     double declaration();
     double assignment();
