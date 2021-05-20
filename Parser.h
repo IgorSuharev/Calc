@@ -9,16 +9,16 @@
 class Parser {
 public:
     Parser(TokenStream& tokenStream, const VariableTable& variableTable);
-    double expression();
-    double primary();
-    double secondary();
-    double term();
-    double declaration();
     
     double statement();
+    double declaration();
     double assignment();
+    double expression();
+    double term();
+    double secondary();
+    double primary();
 
-    bool reachedTerminalToken();
+    bool reachedTerminalToken() const;
 private:
     TokenStream& tokenStream;
     VariableTable variableTable;
