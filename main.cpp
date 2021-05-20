@@ -18,8 +18,8 @@ using std::cerr;
 using std::runtime_error;
 using std::exception;
 
-const string prompt = ">>> ";
-const string resultPrefix = "  = ";
+const string prompt{ ">>> " };
+const string resultPrefix{ "  = " };
 
 inline void keepWindowOpen(string s) {
     if (s == "") {
@@ -27,19 +27,19 @@ inline void keepWindowOpen(string s) {
     }
     cin.clear();
     cin.ignore(120, '\n');
-    for (string ss = ""; ss != s; cin >> ss) {
+    for (string ss{ "" }; ss != s; cin >> ss) {
         cout << "Please enter " << s << " to exit" << endl;
     }
     return;
 }
 
 void runCalculator(TokenStream& tokenStream, const VariableTable& variableTable) {
-    Parser parser(tokenStream, variableTable);
+    Parser parser{ tokenStream, variableTable };
 
     cout << prompt;
     while (true) {
         try {
-            double result = parser.statement();
+            double result{ parser.statement() };
             if (parser.reachedTerminalToken()) {
                 return;
             }
@@ -57,8 +57,8 @@ void runCalculator(TokenStream& tokenStream, const VariableTable& variableTable)
 int main() try {
     TokenStream tokenStream{cin};
     VariableTable variableTable;
-    variableTable.defineName("pi", M_PI);
-    variableTable.defineName("e", M_E);
+    variableTable.declare("pi", M_PI);
+    variableTable.declare("e", M_E);
 
     cout << "Welcome to the calculator program!" << endl;
     cout << "Enter expressions with float-point numbers." << endl;
