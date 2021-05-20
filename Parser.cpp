@@ -1,7 +1,11 @@
 #include "Parser.h"
 #include "Math.h"
+
+#pragma warning(push)
+#pragma warning(disable: 4365)
 #include <stdexcept>
 #include <cmath>
+#pragma warning(pop)
 
 //  Grammar.
 //  statement:

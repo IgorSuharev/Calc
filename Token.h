@@ -1,8 +1,11 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4365)
 #include <vector>
 #include <string>
 #include <utility>
+#pragma warning(pop)
 
 using std::string;
 using std::vector;

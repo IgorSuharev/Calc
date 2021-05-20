@@ -1,5 +1,9 @@
 #include "VariableTable.h"
+
+#pragma warning(push)
+#pragma warning(disable: 4365)
 #include <stdexcept>
+#pragma warning(pop)
 
 using std::out_of_range;
 using std::runtime_error;
