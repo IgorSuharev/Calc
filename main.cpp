@@ -62,7 +62,7 @@ int main() try {
 
     cout << "Welcome to the calculator program!" << endl;
     cout << "Enter expressions with float-point numbers." << endl;
-    cout << "End each expression with \"" << Token::typeToValue(TokenType::statementEnding) << "\" character." << endl;
+    cout << "End each statement with \"" << Token::typeToValue(TokenType::statementEnding) << "\" character." << endl;
     cout << "For quit the program, enter \"" << Token::typeToValue(TokenType::exit) << "\"." << endl;
 
     runCalculator(tokenStream, variableTable);
