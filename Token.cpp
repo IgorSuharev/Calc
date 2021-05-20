@@ -17,7 +17,7 @@ using std::numeric_limits;
 Token::Token(TokenType type)
     : type{ type }, value{ typeToValue(type) } {}
 
-Token::Token(TokenType type, string value)
+Token::Token(const TokenType &type, const string &value)
     : type{ type }, value{ value } {}
 
 double Token::toNumeric() const try {

@@ -29,7 +29,7 @@ enum class TokenType {
 class Token {
 public:
     Token(TokenType type);
-    Token(TokenType type, string value);
+    Token(const TokenType& type, const string& value);
 
     double toNumeric() const;
     TokenType getType() const;
