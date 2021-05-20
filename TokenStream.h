@@ -13,6 +13,8 @@ using std::istream;
 class TokenStream {
 public:
     TokenStream(istream& is);
+    TokenStream& operator=(const TokenStream&) = delete;
+
     Token get();
     void putback(Token t);
     void toNextStatement();
