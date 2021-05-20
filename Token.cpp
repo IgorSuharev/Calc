@@ -2,10 +2,8 @@
 
 #pragma warning(push)
 #pragma warning(disable: 4365)
-#include <string>
 #include <stdexcept>
 #include <cmath>
-#include <utility>
 #include <algorithm>
 #include <climits>
 #pragma warning(pop)
