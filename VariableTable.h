@@ -8,12 +8,11 @@ using std::string;
 
 class VariableTable {
 public:
-    double getValue(string name);
-    bool isDeclared(string name);
-    double defineName(string name, double value);
+    double getValue(string name) const;
+    bool isDeclared(string name) const;
+    double declare(string name, double value);
     double assign(string name, double value);
 
 private:
     map<string, double> variables;
 };
-
