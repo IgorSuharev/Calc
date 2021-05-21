@@ -24,9 +24,6 @@ using std::cerr;
 using std::runtime_error;
 using std::exception;
 
-const string prompt{ ">>> " };
-const string resultPrefix{ "  = " };
-
 inline void keepWindowOpen(string s) {
     if (s == "") {
         return;
@@ -40,6 +37,8 @@ inline void keepWindowOpen(string s) {
 }
 
 void runCalculator(TokenStream& tokenStream, const VariableTable& variableTable) {
+    const string prompt{ ">>> " };
+    const string resultPrefix{ "  = " };
     Parser parser{ tokenStream, variableTable };
 
     cout << prompt;
