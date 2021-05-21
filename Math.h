@@ -2,7 +2,7 @@
 
 class Math {
 public:
-    static unsigned long long factorial(unsigned n);
+    static double factorial(double n);
 private:
     Math();
 };

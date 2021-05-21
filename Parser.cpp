@@ -191,11 +191,7 @@ double Parser::secondary() {
     while (true) {
         switch (token.getType()) {
         case TokenType::factorial:
-            if (isnan(left) || left < 0) {
-                left = isnan(left);
-            } else {
-                left = static_cast<double>(Math::factorial(static_cast<unsigned>(left)));
-            }
+            left = Math::factorial(left);
             break;
         default:
             tokenStream.putback(token);
