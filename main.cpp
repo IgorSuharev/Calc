@@ -1,14 +1,10 @@
 ﻿#define _USE_MATH_DEFINES
 
-#pragma warning(push)
-#pragma warning(disable: 4365)
 #include <cmath>
 #include <vector>
 #include <stdexcept>
 #include <iostream>
 #include <climits>
-#pragma warning(pop)
-
 #include "Token.h"
 #include "TokenStream.h"
 #include "VariableTable.h"

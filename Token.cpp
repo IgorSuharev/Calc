@@ -1,12 +1,8 @@
 #include "Token.h"
-
-#pragma warning(push)
-#pragma warning(disable: 4365)
 #include <stdexcept>
 #include <cmath>
 #include <algorithm>
 #include <climits>
-#pragma warning(pop)
 
 using std::domain_error;
 using std::find;

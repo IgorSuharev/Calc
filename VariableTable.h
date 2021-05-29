@@ -1,10 +1,7 @@
 #pragma once
 
-#pragma warning(push)
-#pragma warning(disable: 4365)
 #include <map>
 #include <string>
-#pragma warning(pop)
 
 using std::map;
 using std::string;

@@ -1,11 +1,7 @@
 #include "Token.h"
 #include "TokenStream.h"
-
-#pragma warning(push)
-#pragma warning(disable: 4365)
 #include <stdexcept>
 #include <cctype>
-#pragma warning(pop)
 
 using std::runtime_error;
 using std::out_of_range;
